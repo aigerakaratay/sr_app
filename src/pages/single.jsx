@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 //images
 import img1 from "../images/1.jpeg";
 
-// import { useRef, Fragment } from "react";
-// import ActionSheet from "actionsheet-react";
+import { useRef, Fragment } from "react";
+import ActionSheet from "actionsheet-react";
 
 const Single = () => {
-  //   const ref = useRef();
+  const ref = useRef();
 
-  //   const handleOpen = () => {
-  //     ref.current.open();
-  //   };
+  const handleOpen = () => {
+    ref.current.open();
+  };
 
-  //   const handleClose = () => {
-  //     ref.current.close();
-  //   };
+  const handleClose = () => {
+    ref.current.close();
+  };
 
   return (
     <div className="singlePage">
@@ -54,7 +54,7 @@ const Single = () => {
         <i className="fi fi-rr-share"></i>
       </div>
 
-      {/* <Fragment>
+      <Fragment>
         <h1>Action Sheet for web</h1>
         <button onClick={handleOpen}>Open</button>
         <ActionSheet ref={ref}>
@@ -63,17 +63,17 @@ const Single = () => {
             <button onClick={handleClose}>Close</button>
           </div>
         </ActionSheet>
-      </Fragment> */}
+      </Fragment>
     </div>
   );
 };
-// const style = {
-//   content: {
-//     height: 300,
-//     display: "flex",
-//     flexDirection: "column",
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
-// };
+const style = {
+  content: {
+    height: 300,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+};
 export default Single;

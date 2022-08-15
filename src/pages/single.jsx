@@ -1,21 +1,128 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { render } from "react-dom";
+import Sheet from "react-modal-sheet";
+import { Button, Comment, Form, Header } from "semantic-ui-react";
+import { Rating } from "semantic-ui-react";
+
 //images
 import img1 from "../images/1.jpeg";
 
-import { useRef, Fragment } from "react";
-import ActionSheet from "actionsheet-react";
-
 const Single = () => {
-  const ref = useRef();
+  function CommentExampleThreaded() {
+    return (
+      <>
+        <Comment.Group threaded className="commentSheet">
+          <Header as="h2" dividing>
+            Comments
+          </Header>
+          <Rating icon="star" defaultRating={3} maxRating={4} />
 
-  const handleOpen = () => {
-    ref.current.open();
-  };
+          <Comment>
+            <Comment.Avatar
+              as="a"
+              src="https://react.semantic-ui.com/images/avatar/small/matt.jpg"
+            />
+            <Comment.Content>
+              <Comment.Author as="a">Matt</Comment.Author>
+              <Comment.Metadata>
+                <span>Today at 5:42PM</span>
+              </Comment.Metadata>
+              <Comment.Text>So interesting!</Comment.Text>
+              <Comment.Actions>
+                <a>Reply</a>
+              </Comment.Actions>
+            </Comment.Content>
+          </Comment>
 
-  const handleClose = () => {
-    ref.current.close();
-  };
+          <Comment>
+            <Comment.Avatar
+              as="a"
+              src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg"
+            />
+            <Comment.Content>
+              <Comment.Author as="a">Elliot Fu</Comment.Author>
+              <Comment.Metadata>
+                <span>Yesterday at 12:30AM</span>
+              </Comment.Metadata>
+              <Comment.Text>
+                <p>
+                  This has been very useful for my fitness plan. Thanks as well!
+                </p>
+              </Comment.Text>
+              <Comment.Actions>
+                <a>Reply</a>
+              </Comment.Actions>
+            </Comment.Content>
+
+            <Comment.Group>
+              <Comment>
+                <Comment.Avatar
+                  as="a"
+                  src="https://react.semantic-ui.com/images/avatar/small/jenny.jpg"
+                />
+                <Comment.Content>
+                  <Comment.Author as="a">Jenny Hess</Comment.Author>
+                  <Comment.Metadata>
+                    <span>Just now</span>
+                  </Comment.Metadata>
+                  <Comment.Text>Elliot you are always so right :)</Comment.Text>
+                  <Comment.Actions>
+                    <a>Reply</a>
+                  </Comment.Actions>
+                </Comment.Content>
+              </Comment>
+            </Comment.Group>
+          </Comment>
+
+          <Comment>
+            <Comment.Avatar
+              as="a"
+              src="https://react.semantic-ui.com/images/avatar/small/joe.jpg"
+            />
+            <Comment.Content>
+              <Comment.Author as="a">Joe Henderson</Comment.Author>
+              <Comment.Metadata>
+                <span>5 days ago</span>
+              </Comment.Metadata>
+              <Comment.Text>This is awesome. Thanks so much</Comment.Text>
+              <Comment.Actions>
+                <a>Reply</a>
+              </Comment.Actions>
+            </Comment.Content>
+          </Comment>
+
+          <Form reply>
+            <Form.TextArea />
+            <Button
+              content="Add Reply"
+              labelPosition="left"
+              icon="edit"
+              primary
+            />
+          </Form>
+        </Comment.Group>
+      </>
+    );
+  }
+
+  function Comments() {
+    const [isOpen, setOpen] = React.useState(false);
+    return (
+      <>
+        <button onClick={() => setOpen(true)}>Open comment section</button>
+
+        <Sheet isOpen={isOpen} onClose={() => setOpen(false)}>
+          <Sheet.Container>
+            <Sheet.Header />
+            <Sheet.Content>{CommentExampleThreaded()}</Sheet.Content>
+          </Sheet.Container>
+
+          <Sheet.Backdrop />
+        </Sheet>
+      </>
+    );
+  }
 
   return (
     <div className="singlePage">
@@ -54,26 +161,9 @@ const Single = () => {
         <i className="fi fi-rr-share"></i>
       </div>
 
-      <Fragment>
-        <h1>Action Sheet for web</h1>
-        <button onClick={handleOpen}>Open</button>
-        <ActionSheet ref={ref}>
-          <div style={style.content}>
-            <h4>Hi React Devs!</h4>
-            <button onClick={handleClose}>Close</button>
-          </div>
-        </ActionSheet>
-      </Fragment>
+      {Comments()}
     </div>
   );
 };
-const style = {
-  content: {
-    height: 300,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-};
+
 export default Single;

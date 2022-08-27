@@ -16,7 +16,7 @@ const Single = () => {
           <Header as="h2" dividing>
             Comments
           </Header>
-          <Rating icon="star" defaultRating={3} maxRating={4} />
+          {/* <Rating icon="star" defaultRating={3} maxRating={4} /> */}
 
           <Comment>
             <Comment.Avatar
@@ -126,10 +126,11 @@ const Single = () => {
 
   return (
     <div className="singlePage">
-      <h1>
+      <img className="singleImg" src={img1} alt="fitness" />
+      <h1 className="blogTitle">
         <b>BLOG NAME 1</b>
       </h1>
-      <h2>Published at 02 August, 2022</h2>
+      <h2 className="published"><i className="fi fi-rr-calendar"></i>&nbsp;&nbsp;Published on 02 August, 2022</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
         sodales nulla vitae luctus elementum. Pellentesque porta metus gravida,
@@ -140,7 +141,7 @@ const Single = () => {
         magnis dis parturient montes, nascetur ridiculus mus. Pellentesque id
         augue laoreet, pharetra mi in, finibus nunc.
       </p>
-      <img className="singleImg" src={img1} alt="fitness" />
+      {/* <img className="singleImg" src={img1} alt="fitness" /> */}
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
         sodales nulla vitae luctus elementum. Pellentesque porta metus gravida,

@@ -9,7 +9,23 @@ body {
   font-family: "Montserrat";
 }
 .singlePage {
-  margin: 35px;
+  margin-top: 35px;
+  margin-left: 70px;
+  margin-right: 70px;
+  font-family: "Montserrat";
+  font-size: small;
+}
+.blogTitle {
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: bold;
+  text-overflow: ellipsis;
+}
+
+.published {
+  font-family: "Montserrat";
+  font-size:medium;
+  color: #817e7e;
 }
 
 .image-grid {
@@ -64,8 +80,8 @@ body {
 
 .singleImg {
   width: 100%;
-  max-width: 800px;
-  max-height: 400px;
+  max-width: 1300px;
+  max-height: 300px;
   height: auto;
   object-fit: cover;
   border-radius: 25px;
@@ -100,6 +116,12 @@ body {
   font-family: "Montserrat";
   color: azure;
   opacity: 1;
+  display: inline-block;
+  width: 90%;
+  /* width: 60ch; */
+  max-width: 60ch;
+  white-space: nowrap;
+  overflow: hidden !important;
   text-overflow: ellipsis;
 }
 
@@ -107,10 +129,28 @@ body {
   position: absolute;
   bottom: 30px;
   left: 30px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: "Montserrat";
   color: azure;
   text-overflow: ellipsis;
+  max-width: 90%;
+  text-transform: uppercase;
+}
+
+.blogTag {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  font-size: 15px;
+  font-family: "Montserrat";
+  color: azure;
+  text-overflow: ellipsis;
+  max-width: 90%;
+
+  background-color: rgba(191, 191, 191, 0.626);
+  border-radius: 5px;
+  max-width:fit-content;
+  text-transform: uppercase;
 }
 
 /* The Modal (background) */
@@ -182,7 +222,7 @@ span.sticky {
   justify-content: space-around;
   /* align-content: flex-end; */
   position: fixed;
-  top: 50%;
+  top: 400px;
   right: 3%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -205,9 +245,13 @@ span.sticky {
     font-size: 30px;
   }
   .singleImg {
-    max-width: 400px;
-    max-height: 200px;
+    max-width: 650px;
+    max-height: 150px;
   }
+  .blogTitle {
+    font-size: 20px;
+  }
+
   .first-txt {
     font-size: 25px;
   }
